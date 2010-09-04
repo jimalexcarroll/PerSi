@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# invoke rmmod with all arguments we got
+rmmod mapmanager
+
+# Remove stale nodes
+rm -f /dev/mapmanager
+
+
+
+
+
