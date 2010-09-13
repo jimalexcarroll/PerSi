@@ -1,14 +1,7 @@
 ####TARGET####
 
-# Build Map Manager
-cd mapmanager
+# Build all modules
 make
-cd ..
-
-# Build Device Simulator(s)
-cd devicesimulator
-make
-cd ..
 
 # Build Command Line Simulator access
 cc ../mapmanager/mapmanageruser.c -o../build/persi -I../include
