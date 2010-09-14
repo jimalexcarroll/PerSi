@@ -1,8 +1,8 @@
-cmd_/home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/mapmanager.o := gcc -Wp,-MD,/home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/.mapmanager.o.d  -nostdinc -isystem /usr/lib/gcc/i486-linux-gnu/4.4.3/include  -Iinclude  -I/usr/src/linux-headers-2.6.32-24-generic/arch/x86/include -include include/linux/autoconf.h -Iubuntu/include  -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -m32 -msoft-float -mregparm=3 -freg-struct-return -mpreferred-stack-boundary=2 -march=i586 -mtune=generic -maccumulate-outgoing-args -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -Wframe-larger-than=1024 -fno-omit-frame-pointer -fno-optimize-sibling-calls -pg -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fno-dwarf2-cfi-asm -fconserve-stack -I/home/jim/workspace/PerSi/group/mapmanager/../../include -D__DEBUG_TRACE__  -DMODULE -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(mapmanager)"  -D"KBUILD_MODNAME=KBUILD_STR(mapmanager)"  -c -o /home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/.tmp_mapmanager.o /home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/mapmanager.c
+cmd_/home/jim/workspace/PerSi/group/../mapmanager/mapmanager.o := gcc -Wp,-MD,/home/jim/workspace/PerSi/group/../mapmanager/.mapmanager.o.d  -nostdinc -isystem /usr/lib/gcc/i486-linux-gnu/4.4.3/include  -Iinclude  -I/usr/src/linux-headers-2.6.32-24-generic/arch/x86/include -include include/linux/autoconf.h -Iubuntu/include  -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -m32 -msoft-float -mregparm=3 -freg-struct-return -mpreferred-stack-boundary=2 -march=i586 -mtune=generic -maccumulate-outgoing-args -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -Wframe-larger-than=1024 -fno-omit-frame-pointer -fno-optimize-sibling-calls -pg -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fno-dwarf2-cfi-asm -fconserve-stack -I/home/jim/workspace/PerSi/group/../include -D__DEBUG_TRACE__  -DMODULE -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(mapmanager)"  -D"KBUILD_MODNAME=KBUILD_STR(mapmanager)"  -c -o /home/jim/workspace/PerSi/group/../mapmanager/.tmp_mapmanager.o /home/jim/workspace/PerSi/group/../mapmanager/mapmanager.c
 
-deps_/home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/mapmanager.o := \
-  /home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/mapmanager.c \
-  /home/jim/workspace/PerSi/group/mapmanager/../../include/mapmanager.h \
+deps_/home/jim/workspace/PerSi/group/../mapmanager/mapmanager.o := \
+  /home/jim/workspace/PerSi/group/../mapmanager/mapmanager.c \
+  /home/jim/workspace/PerSi/group/../include/mapmanager.h \
   include/linux/init.h \
     $(wildcard include/config/modules.h) \
     $(wildcard include/config/hotplug.h) \
@@ -481,9 +481,9 @@ deps_/home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/mapmanager.o :=
     $(wildcard include/config/x86/wp/works/ok.h) \
     $(wildcard include/config/x86/intel/usercopy.h) \
   /usr/src/linux-headers-2.6.32-24-generic/arch/x86/include/asm/uaccess_32.h \
-  /home/jim/workspace/PerSi/group/mapmanager/../../include/mapmanageruser.h \
-  /home/jim/workspace/PerSi/group/mapmanager/../../include/kerneldebug.h \
+  /home/jim/workspace/PerSi/group/../include/mapmanageruser.h \
+  /home/jim/workspace/PerSi/group/../include/kerneldebug.h \
 
-/home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/mapmanager.o: $(deps_/home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/mapmanager.o)
+/home/jim/workspace/PerSi/group/../mapmanager/mapmanager.o: $(deps_/home/jim/workspace/PerSi/group/../mapmanager/mapmanager.o)
 
-$(deps_/home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/mapmanager.o):
+$(deps_/home/jim/workspace/PerSi/group/../mapmanager/mapmanager.o):
