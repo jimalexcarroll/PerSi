@@ -1,4 +1,0 @@
-0x416f2f5e	mapmanager_driverread	/home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/mapmanager	EXPORT_SYMBOL
-0xcc307e26	mapmanager_driverwrite	/home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/mapmanager	EXPORT_SYMBOL
-0x0c387836	mapmanager_deviceread	/home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/mapmanager	EXPORT_SYMBOL
-0x8f14c01b	mapmanager_devicewrite	/home/jim/workspace/PerSi/group/mapmanager/../../mapmanager/mapmanager	EXPORT_SYMBOL
