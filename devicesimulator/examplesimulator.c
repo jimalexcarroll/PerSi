@@ -1,5 +1,10 @@
+/* An example peripheral simulator: a counter
+   2 registers: reset and count */
+
+
 #include "examplesimulator.h"
 #include "mapmanageruser.h"
+#include "memorymap.h"
 
 MODULE_LICENSE("Dual BSD/GPL");
 
@@ -22,20 +27,59 @@ int examplesimulator_release(struct inode *inode, struct file *filp)
     return 0;
 }
 
-void test()
+
+
+
+void examplesimulator_starttimer()
+{
+    __TRACE__("examplesimulator_starttimer\n")
+
+    init_timer(&countertimer);
+
+    countertimer.function = examplesimulator_countercallback;
+    countertimer.expires = jiffies + HZ; /* one second */
+    add_timer(&countertimer);
+}
+
+
+
+
+void examplesimulator_countercallback(unsigned long ptr)
 {
     int err;
-    persiregister reg;
+    persiregister resetreg, counterreg;
 
-    reg.address=1;
-    reg.value=1;
+    __TRACE__("examplesimulator_countercallback\n")
 
-    err=mapmanager_deviceread(&reg);
-    err=mapmanager_devicewrite(&reg);
-    err=mapmanager_driverread(&reg);
-    err=mapmanager_driverwrite(&reg);
+    /* Read reset register */
+    resetreg.address = counterreset;
+    err = mapmanager_deviceread(&resetreg);
 
+    /* Read counter register */
+    counterreg.address = countercount;
+    err = mapmanager_deviceread(&counterreg);
+
+   /* If reset register is high, reset the counter to zero */
+    if ((resetreg.value && counterresetbit) == bit0)
+    {
+        counterreg.value=0x0000;
+        err = mapmanager_devicewrite(&counterreg);
+    }
+    /* Else increment the counter */
+    else
+    {
+        counterreg.value++;
+        err = mapmanager_devicewrite(&counterreg);
+    }
+
+    /* Clear the reset register */
+    resetreg.value = 0x0000;
+    err = mapmanager_devicewrite(&resetreg);
+
+    /* Start again! */
+    examplesimulator_starttimer();
 }
+
 
 
 static int __init examplesimulator_init(void)
@@ -75,6 +119,9 @@ static int __init examplesimulator_init(void)
         __TRACE__("Example simulator device add OK\n")
     }
 
+    /* Start counter */
+    examplesimulator_starttimer();
+
     return err; 
 }
 
@@ -87,6 +134,9 @@ static void __exit examplesimulator_exit(void)
 
     __TRACE__("examplesimulator_exit\n")
   
+    /* Remove timer */
+    del_timer(&countertimer);
+
     /* Unregister device driver */
     dev = MKDEV(examplesimulatormajor, examplesimulatorminor);
     unregister_chrdev_region(dev, simulators);

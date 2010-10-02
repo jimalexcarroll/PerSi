@@ -8,18 +8,19 @@
 #include<linux/ioctl.h>
 #include<linux/slab.h>
 #include<linux/poll.h>
+#include<linux/timer.h>
 #include<asm/uaccess.h>
 
 #include"kerneldebug.h"
 #include"mapmanageruser.h"
-/* Driver Functions */
 
+/* Driver Functions */
 int examplesimulator_open(struct inode *inode, struct file *filp);
 int examplesimulator_release(struct inode *inode, struct file *filp);
 static int __init examplesimulator_init(void);
 static void __exit examplesimulator_exit(void);
-void test(void);
-
+void examplesimulator_countercallback(unsigned long ptr);
+void examplesimulator_starttimer(void);
 
 
 /* Data Structures */
@@ -35,16 +36,14 @@ struct examplesimulator
     struct cdev dev;
 };
 
-
-
-
 /* Global Variables */
 struct examplesimulator device;
+
+struct timer_list countertimer;
 
 int examplesimulatormajor = 0;
 int examplesimulatorminor = 0;
 int simulators  = 1;
-
 
 extern int mapmanager_devicewrite(persiregister* reg);
 extern int mapmanager_deviceread(persiregister* reg);

@@ -31,7 +31,7 @@ int mapmanager_deviceread(persiregister* reg)
 
 int mapmanager_driverwrite(persiregister* reg)
 {
-    __TRACE__("mapmanager_driverread\n")
+    __TRACE__("mapmanager_driverwrite\n")
 
     map[reg->address] = reg->value;
 
