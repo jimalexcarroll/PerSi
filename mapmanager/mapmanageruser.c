@@ -23,7 +23,7 @@ int main (int argc, char* argv[])
         case 1:
 	case 2: 
         {
-            printf("Usage: persi -command addr [value]\n");
+            printf("Usage: persi command addr [value]\n");
             printf("command = r : Read specified register\n");
             printf("command = w : Write specified value to specified register\n");
             break;
