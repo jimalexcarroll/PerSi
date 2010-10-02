@@ -1,5 +1,16 @@
 #!/bin/sh
 
+###################################
+# Add all simulated modules to be unloaded here
+# Use same format as for mapmanager
+# TODO unload simulator list from file 
+
+# example simulator
+rmmod examplesimulator
+rm -f /dev/examplesimulator
+
+###################################
+
 # invoke rmmod with all arguments we got
 rmmod mapmanager
 

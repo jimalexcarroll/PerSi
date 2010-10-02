@@ -12,3 +12,16 @@ major=`cat /proc/devices | awk "\\$2==\"mapmanager\" {print \\$1}"`
 rm -f /dev/mapmanager
 mknod /dev/mapmanager c $major 0
 chmod 666  /dev/mapmanager
+
+###################################
+# Add all simulated modules to be loaded here
+# Use same format as for mapmanager
+# TODO load simulator list from file 
+
+# example simulator
+insmod -f examplesimulator.ko
+rm -f /dev/examplesimulator
+mknod /dev/examplesimulator c $major 0
+chmod 666  /dev/examplesimulator
+###################################
+

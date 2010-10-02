@@ -31,6 +31,10 @@ void test()
     reg.value=1;
 
     err=mapmanager_deviceread(&reg);
+    err=mapmanager_devicewrite(&reg);
+    err=mapmanager_driverread(&reg);
+    err=mapmanager_driverwrite(&reg);
+
 }
 
 
