@@ -3,7 +3,7 @@ EXTRA_CFLAGS += -I$(LDDINCDIR) -D__DEBUG_TRACE__
 ifneq ($(KERNELRELEASE),)
 # call from kernel build system
 
-obj-y += ../mapmanager/ ../devicesimulator/
+obj-y += ../mapmanager/ ../devicesimulator/ ../drivers/
 
 else
 
@@ -27,6 +27,12 @@ install:
 	mv -f ../devicesimulator/examplesimulator.mod.c ../build	
 	mv -f ../devicesimulator/examplesimulator.mod.o ../build	
 	mv -f ../devicesimulator/examplesimulator.o ../build
+
+        # Drivers
+	mv -f ../drivers/exampledriver.ko ../build
+	mv -f ../drivers/exampledriver.mod.c ../build	
+	mv -f ../drivers/exampledriver.mod.o ../build	
+	mv -f ../drivers/exampledriver.o ../build
 
 	# Command line
 	mv -f ../mapmanager/persi ../build
@@ -59,6 +65,14 @@ clean:
 	rm -f ../build/examplesimulator.o 
 	rm -f ../devicesimulator/modules.order 
 	rm -f ../devicesimulator/Module.symvers 
+
+	# Drivers
+	rm -f ../build/exampledriver.ko
+	rm -f ../build/exampledriver.mod.c 
+	rm -f ../build/exampledriver.mod.o 
+	rm -f ../build/exampledriver.o 
+	rm -f ../drivers/modules.order 
+	rm -f ../drivers/Module.symvers 
 
 	# Remove exported scripts
 	rm -f ../build/persi_load

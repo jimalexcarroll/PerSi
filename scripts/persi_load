@@ -25,3 +25,14 @@ mknod /dev/examplesimulator c $major 0
 chmod 666  /dev/examplesimulator
 ###################################
 
+###################################
+# Add all device drivers to be loaded here
+# Use same format as for mapmanager
+# TODO load driver list from file 
+
+# example driver
+insmod -f exampledriver.ko
+rm -f /dev/exampledriver
+mknod /dev/exampledriver c $major 0
+chmod 666  /dev/exampledriver
+

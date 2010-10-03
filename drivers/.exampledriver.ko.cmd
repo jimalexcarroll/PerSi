@@ -1,0 +1,1 @@
+cmd_/home/jim/workspace/PerSi/group/../drivers/exampledriver.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-2.6.32-25-generic/scripts/module-common.lds --build-id -o /home/jim/workspace/PerSi/group/../drivers/exampledriver.ko /home/jim/workspace/PerSi/group/../drivers/exampledriver.o /home/jim/workspace/PerSi/group/../drivers/exampledriver.mod.o

@@ -11,6 +11,7 @@
 #include<asm/uaccess.h>
 
 #include"mapmanageruser.h"
+#include"mapmanagerexports.h"
 #include"kerneldebug.h"
 
 /* Driver Functions */
@@ -22,11 +23,6 @@ int mapmanager_release(struct inode *inode, struct file *filp);
 static int __init mapmanager_init(void);
 static void __exit mapmanager_exit(void);
 
-/* Driver Exports */
-int mapmanager_devicewrite(persiregister* reg);
-int mapmanager_deviceread(persiregister* reg);
-int mapmanager_driverwrite(persiregister* reg);
-int mapmanager_driverread(persiregister* reg);
 
 /* Data Structures */
 static struct file_operations mapmanager_fops =

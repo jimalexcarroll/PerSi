@@ -10,6 +10,15 @@ rmmod examplesimulator
 rm -f /dev/examplesimulator
 
 ###################################
+# Add all device drivers to be unloaded here
+# Use same format as for mapmanager
+# TODO unload driver list from file 
+
+# example driver
+rmmod exampledriver
+rm -f /dev/exampledriver
+
+###################################
 
 # invoke rmmod with all arguments we got
 rmmod mapmanager
