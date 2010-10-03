@@ -57,7 +57,7 @@ int main (int argc, char* argv[])
                 printf("Value   = 0x%08X\n", reg.value);
             }
             else
-                printf("Incorrect WRITE uage\n");
+                printf("Incorrect WRITE usage\n");
 
             break;
         }

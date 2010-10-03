@@ -3,11 +3,11 @@
 
 #include <linux/ioctl.h>
 
-#define exampledrivermagic 'T'
+#define exampledrivermagic 'K'
 
 /* IOCTLs */
 #define readcounter   _IOR(exampledrivermagic, 1, int) 
-#define resetcounter    _IOW(exampledrivermagic, 2, int)
+#define resetcounter    _IO(exampledrivermagic, 2)
 
 #endif // __EXAMPLE_DRIVER_USER_H__
 

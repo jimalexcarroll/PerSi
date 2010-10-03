@@ -36,3 +36,4 @@ rm -f /dev/exampledriver
 mknod /dev/exampledriver c $major 0
 chmod 666  /dev/exampledriver
 
+

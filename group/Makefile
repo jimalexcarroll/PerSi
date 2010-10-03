@@ -10,7 +10,7 @@ else
 KERNELDIR := /lib/modules/$(shell uname -r)/build
 PWD       := $(shell pwd)
 
-default: ../mapmanager/persi
+default: ../mapmanager/persi ../drivers/counter
 	$(MAKE) -C $(KERNELDIR) M=$(PWD) LDDINCDIR=$(PWD)/../include modules
 
 .PHONY: install
@@ -37,6 +37,9 @@ install:
 	# Command line
 	mv -f ../mapmanager/persi ../build
 
+	# Command line
+	mv -f ../drivers/counter ../build
+
 	# Copy scripts to build folder
 	cp -f ../scripts/persi_load ../build
 	cp -f ../scripts/persi_unload ../build
@@ -58,6 +61,9 @@ clean:
 	# Command Line Interface
 	rm -f ../build/persi
 
+        # Example Driver test program
+	rm -f ../build/counter
+ 
 	# Device Simulator
 	rm -f ../build/examplesimulator.ko
 	rm -f ../build/examplesimulator.mod.c 
@@ -81,6 +87,8 @@ clean:
 ../mapmanager/persi:
 	cc ../mapmanager/mapmanageruser.c -o ../mapmanager/persi -I../include
 
+../drivers/counter:
+	cc ../drivers/exampledriveruser.c -o ../drivers/counter -I../include
 
 endif
 

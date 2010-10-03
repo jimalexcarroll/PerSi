@@ -4,62 +4,43 @@
 #include <fcntl.h>
 #include <errno.h>
 
-#include "mapmanageruser.h"
+#include "exampledriveruser.h"
 
 int main (int argc, char* argv[])
 {
-    int filedesc, err, event;
-    persiregister reg;
-
-    reg.value=0;
-    reg.address=0;
+    int filedesc, err, count;
 
     /* Call driver functions */
     /* Open  */
-    filedesc = open("/dev/mapmanager", O_RDWR);
+    filedesc = open("/dev/exampledriver", O_RDWR);
+
+    /* Display usage */
+    printf("Usage: counter [0]\n");
+    printf("counter   : Reads counter\n");
+    printf("counter 0 : Resets counter\n");
 
     switch (argc)
     {
         case 1:
+        {
+            err = ioctl(filedesc, readcounter, &count);
+
+            printf("\nCurrent count = %d\n", count);
+
+            break;
+        }
 	case 2: 
         {
-            printf("Usage: persi command addr [value]\n");
-            printf("command = r : Read specified register\n");
-            printf("command = w : Write specified value to specified register\n");
-            break;
-        }
-
-        case 3:
-        {
-            if (argv[1][0]=='r')
-	    {
-                reg.address = atoi(argv[2]);
-                err = ioctl(filedesc, readregister, &reg);
-                printf("PerSi READ:\n");
-                printf("Address = 0x%08X\n", reg.address);
-                printf("Value   = 0x%08X\n", reg.value);
-            }
-            else
-                printf("Incorrect READ usage!\n");
-
-            break;
-        }
-
-        case 4:
-        {
-            if (argv[1][0]=='w')
+            if (argv[1][0]=='0')
             {
-                reg.address = atoi(argv[2]);
-                reg.value = atoi(argv[3]);
-                err = ioctl(filedesc, writeregister, &reg);
-                printf("PerSi WRITE:\n");
-                printf("Address = 0x%08X\n", reg.address);
-                printf("Value   = 0x%08X\n", reg.value);
+                err = ioctl(filedesc, resetcounter, &count);
+
+                printf("\nCounter reset!\n");
             }
             else
-                printf("Incorrect WRITE uage\n");
+                printf("Incorrect RESET usage\n");
 
-            break;
+           break;
         }
 
         default:
