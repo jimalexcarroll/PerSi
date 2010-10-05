@@ -32,6 +32,7 @@ chmod 666  /dev/examplesimulator
 
 # example driver
 insmod -f exampledriver.ko
+major=`cat /proc/devices | awk "\\$2==\"exampledriver\" {print \\$1}"`
 rm -f /dev/exampledriver
 mknod /dev/exampledriver c $major 0
 chmod 666  /dev/exampledriver
