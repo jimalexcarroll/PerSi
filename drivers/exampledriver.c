@@ -34,7 +34,7 @@ int exampledriver_ioctl(struct inode *inode, struct file *filp,
         {
             __TRACE__("readcounter\n")
  
-#ifdef __PERSI_
+#ifdef __PERSI__
             reg.address = countercount;
 
             err = mapmanager_driverread(&reg);
@@ -47,6 +47,7 @@ int exampledriver_ioctl(struct inode *inode, struct file *filp,
 
             err = copy_to_user((void*)arg, (void*)&reg.value, sizeof(reg.value));
 
+
             break;
         }
 
@@ -54,7 +55,7 @@ int exampledriver_ioctl(struct inode *inode, struct file *filp,
         {
             __TRACE__("resetcounter\n")
 
-#ifdef __PERSI_
+#ifdef __PERSI__
             reg.address = counterreset;
             reg.value = counterresetbit;
 
