@@ -57,6 +57,9 @@ clean:
 	rm -f ../build/mapmanager.o 
 	rm -f ../mapmanager/modules.order
 	rm -f ../mapmanager/Module.symvers
+	rm -f ../mapmanager/.mapmanager.ko.cmd
+	rm -f ../mapmanager/.mapmanager.mod.o.cmd
+	rm -f ../mapmanager/.mapmanager.o.cmd
 
 	# Command Line Interface
 	rm -f ../build/persi
@@ -71,6 +74,9 @@ clean:
 	rm -f ../build/examplesimulator.o 
 	rm -f ../devicesimulator/modules.order 
 	rm -f ../devicesimulator/Module.symvers 
+	rm -f ../devicesimulator/.examplesimulator.ko.cmd
+	rm -f ../devicesimulator/.examplesimulator.mod.o.cmd
+	rm -f ../devicesimulator/.examplesimulator.o.cmd
 
 	# Drivers
 	rm -f ../build/exampledriver.ko
@@ -79,10 +85,16 @@ clean:
 	rm -f ../build/exampledriver.o 
 	rm -f ../drivers/modules.order 
 	rm -f ../drivers/Module.symvers 
+	rm -f ../drivers/.exampledriver.ko.cmd
+	rm -f ../drivers/.exampledriver.mod.o.cmd
+	rm -f ../drivers/.exampledriver.o.cmd
 
 	# Remove exported scripts
 	rm -f ../build/persi_load
 	rm -f ../build/persi_unload
+
+	# Remove temporary directory
+	rm -Rf .tmp_versions/
 
 ../mapmanager/persi:
 	cc ../mapmanager/mapmanageruser.c -o ../mapmanager/persi -I../include
