@@ -53,8 +53,7 @@ int mapmanager_driverread(persiregister* reg)
 
 
 
-int mapmanager_ioctl(struct inode *inode, struct file *filp,
-                 unsigned int cmd, unsigned long arg)
+long mapmanager_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 {
     int err = 0;
     persiregister reg;

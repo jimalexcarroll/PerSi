@@ -15,8 +15,7 @@
 
 /* Driver Functions */
 
-int exampledriver_ioctl(struct inode *inode, struct file *filp,
-                 unsigned int cmd, unsigned long arg);
+long exampledriver_ioctl(struct file *filp, unsigned int cmd, unsigned long arg);
 int exampledriver_open(struct inode *inode, struct file *filp);
 int exampledriver_release(struct inode *inode, struct file *filp);
 static int __init exampledriver_init(void);
@@ -25,10 +24,10 @@ static void __exit exampledriver_exit(void);
 /* Data Structures */
 static struct file_operations exampledriver_fops =
 {
-    .owner   = THIS_MODULE,
-    .ioctl   = exampledriver_ioctl,
-    .open    = exampledriver_open,
-    .release = exampledriver_release,
+    .owner            = THIS_MODULE,
+    .unlocked_ioctl   = exampledriver_ioctl,
+    .open             = exampledriver_open,
+    .release          = exampledriver_release,
 };
 
 struct exampledriver 

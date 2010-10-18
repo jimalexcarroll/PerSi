@@ -17,8 +17,7 @@ MODULE_LICENSE("GPL");
 module_init(exampledriver_init);
 module_exit(exampledriver_exit);
 
-int exampledriver_ioctl(struct inode *inode, struct file *filp,
-                 unsigned int cmd, unsigned long arg)
+long exampledriver_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 {
     int err = 0;
 

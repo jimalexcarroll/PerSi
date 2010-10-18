@@ -16,8 +16,7 @@
 
 /* Driver Functions */
 
-int mapmanager_ioctl(struct inode *inode, struct file *filp,
-                 unsigned int cmd, unsigned long arg);
+long mapmanager_ioctl(struct file *filp, unsigned int cmd, unsigned long arg);
 int mapmanager_open(struct inode *inode, struct file *filp);
 int mapmanager_release(struct inode *inode, struct file *filp);
 static int __init mapmanager_init(void);
@@ -27,10 +26,10 @@ static void __exit mapmanager_exit(void);
 /* Data Structures */
 static struct file_operations mapmanager_fops =
 {
-    .owner   = THIS_MODULE,
-    .ioctl   = mapmanager_ioctl,
-    .open    = mapmanager_open,
-    .release = mapmanager_release,
+    .owner            = THIS_MODULE,
+    .unlocked_ioctl   = mapmanager_ioctl,
+    .open             = mapmanager_open,
+    .release          = mapmanager_release,
 };
 
 struct mapmanager 
