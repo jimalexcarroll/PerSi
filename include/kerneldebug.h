@@ -4,9 +4,9 @@
 
 #ifdef __DEBUG_TRACE__
 
-#define __TRACE__(a) printk(KERN_ALERT a);
-#define __TRACE1__(a,b) printk(KERN_ALERT a,b);
-#define __TRACE2__(a,b,c) printk(KERN_ALERT a,b,c);
+#define __TRACE__(a) printk(KERN_DEBUG a);
+#define __TRACE1__(a,b) printk(KERN_DEBUG a,b);
+#define __TRACE2__(a,b,c) printk(KERN_DEBUG a,b,c);
 
 #else // not __DEBUG_TRACE__
 
